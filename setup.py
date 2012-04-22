@@ -49,8 +49,8 @@ setup(
     long_description=readme,
     author='Raul Perez',
     author_email='repejota@gmail.com',
-    url='https://repejota.github.com/fhost',
-    download_url='https://repejota.github.com/fhost/install',
+    url='http://repejota.github.com/fhost',
+    download_url='http://repejota.github.com/fhost/install',
     license=license,
     packages=find_packages(exclude=('tests', 'docs')),
     classifiers=[
