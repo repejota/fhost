@@ -1,0 +1,79 @@
+{%- block htmltitle %}
+<!doctype html>
+{%- endblock %}
+<html language="{{ language }}">
+    <head>
+        <!-- Metatags -->
+        {%- block head_metatags %}
+        <!-- Charset -->
+        <meta charset="{{ encoding }}">
+        <!-- Mobile viewport optimized -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- SEO metadata -->
+        <meta name="description" content="{{ description }}">
+        <meta name="keywords" content="">
+        <meta name="author" content="{{ author }}">
+        {%- endblock %}
+        <!-- Title -->
+        {%- block head_title %}
+        <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+        {%- endblock %}
+        <!-- Linktags -->
+        {%- block head_linktags %}
+        <link rel="shortcut icon" href="_static/subcmd.ico">
+
+        {%- endblock %}
+        <!-- Stylesheets -->
+        {%- block stylesheets %}
+        <link href="_static/bootstrap.css" rel="stylesheet">
+        <link href="_static/pygments.css" rel="stylesheet">
+        <link href="_static/subcmd.css" rel="stylesheet">
+        {%- endblock %}
+        <!-- Headextra -->
+        {%- block headextra %}
+        {%- endblock %}
+    </head>
+    <body>
+        {%- block header %}
+        {%- endblock %}
+        <div class="container">
+            {%- block body %}{%- endblock %}
+        </div>
+        {%- block footer %}
+        <footer>
+            <hr/>
+            <div class="pull-right"><a href="index.html">Home</a> | <a href="#">Back to top</a></div>
+            Raül Pérez, <a href="mailto:repejota@gmail.com">repejota@gmail.com</a>
+        </footer>
+        {%- endblock %}
+        <!-- Scripts -->
+        {%- block scripts %}
+        <script src="_static/jquery.js"></script>
+        <script src="_static/bootstrap.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/subcmd.js"></script>
+        <script type="text/javascript">
+            var DOCUMENTATION_OPTIONS = {
+                url_root: '{{ url_root }}'
+                , version: '{{ release|e }}'
+                , collapse_index: false
+                , file_suffix: '{{ '' if no_search_suffix else file_suffix }}'
+                , has_source:  {{ has_source|lower }}
+            };
+        </script>
+        <!-- Analytics -->
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-31083649-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>        
+        {%- endblock %}
+    </body>
+</html>

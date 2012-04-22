@@ -1,0 +1,68 @@
+header, .container, footer {
+    width: 700px;
+    margin: auto;
+}
+
+footer {
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.container h1 {
+    font-size: 2.6em;
+    margin-bottom: 0.5em;
+}
+
+.container h2 {
+    margin-top: 20px;
+}
+
+.container h3 {
+    margin-top: 10px;
+}
+
+.container p,
+.toctree-l1 {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.toctree-l2 {
+    line-height: 1.5em;
+}
+
+.headerlink {
+    display: none;
+}
+
+.highlight {
+    border-radius: 5px;
+}
+
+pre {
+    background-color: #202020;
+    font-family: Bitstream Vera Sans Mono,monospace;
+    padding: 1.5em;
+    color: #aaa;
+}
+
+.section dl.class dt,
+.section dl.function dt  {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+.section dl.docutils dt {
+    font-size: 1.3em;
+    margin-bottom: 5px;    
+}
+.section dl.docutils dd {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("glyphicons-halflings.png") !important;
+}
