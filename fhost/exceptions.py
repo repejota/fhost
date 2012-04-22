@@ -29,63 +29,68 @@
 ## END LICENSE BLOCK
 #
 
+
 class BaseException(Exception):
-	"""Base Exception
+    """Base Exception
 
-	This is the base exception. All other exceptions from **fhost** module
-	inherits from this one.
+    This is the base exception. All other exceptions from **fhost** module
+    inherits from this one.
 
-	Example:
+    Example:
 
-	::
+    ::
 
-		try:
-			...
-		except BaseException:
-			raise BaseException("base exception raised!")
-			sys.exit(1)
-	"""
+        try:
+            ...
+        except BaseException:
+            raise BaseException("base exception raised!")
+            sys.exit(1)
+    """
+
 
 class InvalidHostnameException(BaseException):
-	"""Invalid Hostname
+    """Invalid Hostname
 
-	This exception is raised when some part of **fhost** code validates a 
-	hostname format.
+    This exception is raised when some part of **fhost** code validates a
+    hostname format.
 
-	As /etc/hosts file is quite delicated beacuse it can affect the whole system,
-	**fhost** performs aggressive validations on all input and output data.
+    As /etc/hosts file is quite delicated beacuse it can affect the whole
+    system, **fhost** performs aggressive validations on all input and
+    output data.
 
-	A common string message is shown to the user if this exeption raises.
+    A common string message is shown to the user if this exeption raises.
 
-	Example:
+    Example:
 
-	::
+    ::
 
-		try:
-			...
-		except InvalidHostnameException:
-			raise InvalidHostnameException("invalid hostname exception raised!")
-			sys.exit(1)
-	"""
+        try:
+            ...
+        except InvalidHostnameException:
+            raise InvalidHostnameException("invalid hostname exception raised")
+            sys.exit(1)
+    """
+
 
 class InvalidIPException(BaseException):
-	"""Invalid IP
+    """Invalid IP
 
-	This exception is raised when some part of **fhost** code validates an 
-	IP address format.
+    This exception is raised when some part of **fhost** code validates an
+    IP address format.
 
-	As /etc/hosts file is quite delicated beacuse it can affect the whole system,
-	**fhost** performs aggressive validations on all input and output data.
+    As /etc/hosts file is quite delicated beacuse it can affect the whole
+    system, **fhost** performs aggressive validations on all input and
+    output data.
 
-	A common string message is shown to the user if this exeption raises.
+    A common string message is shown to the user if this exeption raises.
 
-	Example:
+    Example:
 
-	::
+    ::
 
-		try:
-			...
-		except InvalidIPException:
-			raise InvalidIPException("invalid ip exception raised!")
-			sys.exit(1)
-	"""
+        try:
+            ...
+        except InvalidIPException:
+            raise InvalidIPException("invalid ip exception raised!")
+            sys.exit(1)
+    """

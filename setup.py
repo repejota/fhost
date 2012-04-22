@@ -38,16 +38,30 @@ with open('README.rst') as f:
 with open('LICENSE') as f:
     license = f.read()
 
+with open('VERSION') as f:
+    version = f.read()
+
 setup(
     name='fhost',
     version='0.2',
-    description='A python module that allows you to create, list, and modify Hosts file entries',
+    description="""A Python module that allows you to create,
+                   list, and modify local hosts file entries.""",
     long_description=readme,
     author='Raul Perez',
     author_email='repejota@gmail.com',
-    url='https://github.com/repejota/fhost',
+    url='https://repejota.github.com/fhost',
+    download_url='https://repejota.github.com/fhost/install',
     license=license,
     packages=find_packages(exclude=('tests', 'docs')),
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Environment :: Console',
+        'Intended Audience :: End Users/Desktop',
+        'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
+        'Operating System :: POSIX',
+        'Programming Language :: Python'
+    ],
     entry_points={
         'console_scripts': [
             'fhost = fhost.cli:application.cmdline'

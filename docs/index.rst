@@ -4,12 +4,25 @@ fhost
 **fhost** is a Python module that helps you to manage your /etc/hostnames
 easily.
 
-Provides you a :abbr:`API (Application Programming Interface)` interface to
-add, remove and list maped local hostnames with IP's that follows the standards
+Provides an :abbr:`API (Application Programming Interface)` based on a 
+:abbr:`CLI (Command line interface)` interface to add, remove and list maped 
+local hostnames with IP's that follows the standards
 of `Hosts file <en.wikipedia.org/wiki/Hosts_(file)>`_.
 
-It is licensed with the `BSD three-clause <http://en.wikipedia.org/wiki/BSD_licenses#3-clause_license_.28.22New_BSD_License.22_or_.22Modified_BSD_License.22.29>`_
+At this moment it only runs in Linux, but we plan to write a port for OSX and 
+Microsoft Windows.
+
+It is licensed under the `BSD three-clause <http://en.wikipedia.org/wiki/BSD_licenses#3-clause_license_.28.22New_BSD_License.22_or_.22Modified_BSD_License.22.29>`_
 license.
+
+.. raw:: html
+
+    <div class="btn-group pull-right download-buttons-home">
+    <a class="btn zip">Download<br/><strong>ZIP File</strong></a>
+    <a class="btn tar">Download<br/><strong>Tar Ball</strong></a>
+    <a class="btn github">Fork On<br/><strong>GitHub</strong></a>
+    <div class="current-version">Current version is <span class="version">v0.2</span></div>
+    </div>
 
 Contents
 --------
@@ -19,7 +32,6 @@ Contents
 
    install
    tutorial
-   development
    api
 
 More information
@@ -27,7 +39,7 @@ More information
 
 **fhost** is written by Raül Pérez. For questions and suggestions concerning
 this project please go to its
-`Github repository site <http://github.com/repejota/fhost>`_ and file a bug
+`Github repository <http://github.com/repejota/fhost>`_ and file a bug
 or write him a message.
 
 .. raw:: html

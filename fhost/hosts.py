@@ -36,151 +36,157 @@ from fhost import utils
 from fhost.exceptions import InvalidHostnameException
 from fhost.exceptions import InvalidIPException
 
+
 class Hosts(object):
-	"""A collection of Hosts
+    """A collection of Hosts
 
-	This is a collection of Hosts implemented as a Python container.
-	It is iterable and have CRUD methods helpers to maintain a 
-	registry of available Hosts during **fhost** process execution.
-	
-	It also have hardcoded the common path where /etc/hosts file is 
-	located.
+    This is a collection of Hosts implemented as a Python container.
+    It is iterable and have CRUD methods helpers to maintain a
+    registry of available Hosts during **fhost** process execution.
 
-	In the future discover code will be implemented, both to detect 
-	the OS and its version and /etc/hosts location.
-	"""
+    It also have hardcoded the common path where /etc/hosts file is
+    located.
 
-	# Default hosts file path ( hardcoded at this moment )
-	hosts_file = "/etc/hosts"
+    In the future discover code will be implemented, both to detect
+    the OS and its version and /etc/hosts location.
+    """
 
-	def __init__(self):
-		"""Available hosts container constructor
+    # Default hosts file path ( hardcoded at this moment )
+    hosts_file = "/etc/hosts"
 
-		Initialized the collection and parses /etc/hosts file for the 
-		first time.
-		"""
-		self.__hosts = []
-		# parse hosts
-		self.__parse(self.hosts_file)
+    def __init__(self):
+        """Available hosts container constructor
 
-	def __parse(self, path):
-		"""Parse an hosts file
+        Initialized the collection and parses /etc/hosts file for the
+        first time.
+        """
+        self.__hosts = []
+        # parse hosts
+        self.__parse(self.hosts_file)
 
-		Parses an /etc/hosts file and fills the container with all of
-		its entries.
+    def __parse(self, path):
+        """Parse an hosts file
 
-		Each host is composed by:
+        Parses an /etc/hosts file and fills the container with all of
+        its entries.
 
-			* IP address
-			* Main hostname
-			* Alias to the main hostname
+        Each host is composed by:
 
-		:Results: None
-		"""
-		# Check if file exists
-		if os.path.exists(path):
-			# Open file read only
-			f = open(path, "r")
-			for line in f.readlines():
-				# Clean line
-				line = line.strip('\r').strip()
-				# Do not want commented or blank lines
-				if not line.startswith("#") and line!='':
-					# Get parts
-					line_parts = line.split()
-					# Add item dict { ip_address, canonical_hostname, aliases }
-					self.__hosts.append({"ip_address": line_parts[:1][0],
-										 "canonical_hostname": line_parts[1:2][0],
-										 "aliases": line_parts[2:]})
-			# Close file
-			f.close()
+            * IP address
+            * Main hostname
+            * Alias to the main hostname
 
-	def __save(self, path):
-		"""Saves hosts file
+        :Results: None
+        """
+        # Check if file exists
+        if os.path.exists(path):
+            # Open file read only
+            f = open(path, "r")
+            for line in f.readlines():
+                # Clean line
+                line = line.strip('\r').strip()
+                # Do not want commented or blank lines
+                if not line.startswith("#") and line != '':
+                    # Get parts
+                    line_parts = line.split()
+                    # Add item dict { ip_address, canonical_hostname, aliases }
+                    self.__hosts.append({
+                                "ip_address": line_parts[:1][0],
+                                "canonical_hostname": line_parts[1:2][0],
+                                "aliases": line_parts[2:]}
+                    )
+            # Close file
+            f.close()
 
-		Saves this container ( one host per line ) to disk at specified path.
+    def __save(self, path):
+        """Saves hosts file
 
-		Also checks if path is available and throws an excpetion if its not
-		accedible.
+        Saves this container ( one host per line ) to disk at specified path.
 
-		:Results: None
-		"""
-		# Open file to write
-		f = open(path, "w")
-		# Write each host
-		for host in self.__hosts:
-			f.write("%s\t%s\t%s\n" % (host['ip_address'], 
-									  host['canonical_hostname'], 
-									  " ".join(host['aliases'])))
-		# Close file
-		f.close()
+        Also checks if path is available and throws an excpetion if its not
+        accedible.
 
-	def __empty(self):
-		"""Empty loaded hosts
+        :Results: None
+        """
+        # Open file to write
+        f = open(path, "w")
+        # Write each host
+        for host in self.__hosts:
+            f.write("%s\t%s\t%s\n" % (host['ip_address'],
+                                      host['canonical_hostname'],
+                                      " ".join(host['aliases'])))
+        # Close file
+        f.close()
 
-		Erases all available hosts on this container and starts with
-		an enmpty one.
+    def __empty(self):
+        """Empty loaded hosts
 
-		:Results: None
-		"""
-		self.__hosts = []	
+        Erases all available hosts on this container and starts with
+        an enmpty one.
 
-	def __iter__(self):
-		"""Hosts iterator
+        :Results: None
+        """
+        self.__hosts = []
 
-		Returns this container iterator.
+    def __iter__(self):
+        """Hosts iterator
 
-		:Results: Iterator on hosts container.
-		"""
-		return iter(self.__hosts)
+        Returns this container iterator.
 
-	def __len__(self):
-		"""Returns number of hosts available
+        :Results: Iterator on hosts container.
+        """
+        return iter(self.__hosts)
 
-		Count how many hosts are in this container.
+    def __len__(self):
+        """Returns number of hosts available
 
-		:Results: int number of hosts
-		"""
-		return len(self.__hosts)
+        Count how many hosts are in this container.
 
-	def add(self, ip_address, canonical_hostname, *args):
-		"""Add new hostname to the container.
+        :Results: int number of hosts
+        """
+        return len(self.__hosts)
 
-		Each host is composed by:
+    def add(self, ip_address, canonical_hostname, *args):
+        """Add new hostname to the container.
 
-			* IP address
-			* Main hostname
-			* Aliases to the main hostname
+        Each host is composed by:
 
-		At this moment multiple aliases are accepted and inserted but only one is 
-		used and saved back.
+            * IP address
+            * Main hostname
+            * Aliases to the main hostname
 
-		:Results: None
-		"""
-		if not utils.isValidIP(ip_address):
-			raise InvalidIPException("%s is not a valid IP address" % ip_address)
-			sys.exit(1)
-		if not utils.isValidHostname(canonical_hostname):
-			raise InvalidHostnameException("%s is not a valid hostname" % canonical_hostname)
-			sys.exit(1)
-		self.__hosts.append({"ip_address": ip_address, 
-							 "canonical_hostname": canonical_hostname, 
-							 "aliases": args})
-		self.__save(self.hosts_file)
+        At this moment multiple aliases are accepted and inserted but
+        only one is used and saved back.
 
-	def delete(self, canonical_hostname):
-		"""Delete existing hostname.
+        :Results: None
+        """
+        if not utils.isValidIP(ip_address):
+            raise InvalidIPException("%s is not a valid IP address"
+                                     % ip_address)
+            sys.exit(1)
+        if not utils.isValidHostname(canonical_hostname):
+            raise InvalidHostnameException("%s is not a valid hostname"
+                                            % canonical_hostname)
+            sys.exit(1)
+        self.__hosts.append({"ip_address": ip_address,
+                             "canonical_hostname": canonical_hostname,
+                             "aliases": args})
+        self.__save(self.hosts_file)
 
-		A valid hostname must be passed, no IP or alias are valid arguments.
+    def delete(self, canonical_hostname):
+        """Delete existing hostname.
 
-		:Results: None
-		"""
-		if not utils.isValidHostname(canonical_hostname):
-			raise InvalidHostnameException("%s is not a valid hostname" % canonical_hostname)
-			sys.exit(1)
-		self.__hosts = [{"ip_address": host["ip_address"], 
-						 "canonical_hostname": host["canonical_hostname"], 
-						 "aliases": host["aliases"]} 
-						for host in self.__hosts 
-						if host["canonical_hostname"]!=canonical_hostname]
-		self.__save(self.hosts_file)
+        A valid hostname must be passed, no IP or alias are valid arguments.
+
+        :Results: None
+        """
+        if not utils.isValidHostname(canonical_hostname):
+            raise InvalidHostnameException("%s is not a valid hostname"
+                                            % canonical_hostname)
+            sys.exit(1)
+        self.__hosts = [{"ip_address": host["ip_address"],
+                         "canonical_hostname": host["canonical_hostname"],
+                         "aliases": host["aliases"]}
+                        for host in self.__hosts
+                        if host["canonical_hostname"] != canonical_hostname]
+        self.__save(self.hosts_file)

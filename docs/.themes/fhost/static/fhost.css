@@ -81,3 +81,26 @@ pre {
 [class^="icon-"], [class*=" icon-"] {
     background-image: url("glyphicons-halflings.png") !important;
 }
+
+div.download-buttons-home {
+    margin-top: 20px;
+}
+div.download-buttons-home div.current-version {
+    text-align: center;
+    font-size: 0.8em;
+}
+div.download-buttons-home div.current-version span.version {
+    font-weight: bold;
+    color: #666;
+}
+a.zip,
+a.tar,
+a.github {
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+a.zip strong,
+a.tar strong,
+a.github strong {
+    font-size: 1.4em;
+}

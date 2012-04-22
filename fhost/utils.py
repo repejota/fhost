@@ -31,36 +31,48 @@
 
 import re
 
+
 def isValidHostname(hostname):
-	"""Check if this is a valid hostname
+    """Check if this is a valid hostname
 
-	Example:
+    Example:
 
-	::
+    ::
 
-		hostname = "example.com"
-		if isValidHostName(hostname):
-			print "Valid Hostname!"
-		else:
-			print "Invalid Hostname"
+        hostname = "example.com"
+        if isValidHostName(hostname):
+            print "Valid Hostname!"
+        else:
+            print "Invalid Hostname"
 
-	:Results: Boolean value that indicates if the hostname is valid.
-	"""
-	return re.match("^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$", hostname)
+    :Results: Boolean value that indicates if the hostname is valid.
+    """
+    regepx = """^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)
+                 *
+                 ([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$"""
+    return re.match(regexp, hostname)
+
 
 def isValidIP(ip):
-	"""Check if this is a valid IP
+    """Check if this is a valid IP
 
-	Example:
+    Example:
 
-	::
+    ::
 
-		hostname = "173.194.34.208"
-		if isValidIP(hostname):
-			print "Valid IP!"
-		else:
-			print "Invalid IP"
+        hostname = "173.194.34.208"
+        if isValidIP(hostname):
+            print "Valid IP!"
+        else:
+            print "Invalid IP"
 
-	:Results: Boolean value that indicates if the IP address is valid.
-	"""
-	return re.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", ip)
+    :Results: Boolean value that indicates if the IP address is valid.
+    """
+    regexp = """^(([0-9]|[1-9][0-9]|1[0-9]
+             {2}
+             |2[0-4][0-9]|25[0-5])\.)
+             {3}
+             ([0-9]|[1-9][0-9]|1[0-9]
+             {2}
+             |2[0-4][0-9]|25[0-5])$"""
+    return re.match(regexp, ip)

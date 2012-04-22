@@ -2,53 +2,55 @@
 Install
 =======
 
-The common way to install **fhost** is using pip:
+The common way to install **fhost** is using pip: ::
 
-::
+    $ pip install fhost
 
-    pip install fhost
+Upgrade is also trivial: ::
 
-Upgrade is also trivial:
+    $ pip install --upgrade fhost
 
-::
-
-    pip install --upgrade fhost
-
-Also if you prefer, download sources and install manually:
+Also if you prefer, download sources and install it manually:
 
 Install from sources
 --------------------
 
-Installation from sources is based in python setuptools.
+Installation from sources is based in python setuptools. Please make sure you
+have a Python environment and you installed setuptools before continue.
 
 Stable version
 ^^^^^^^^^^^^^^
 
-Current stable version is |version|
+Current stable version is v0.2
 
 .. raw:: html
 
-   <p style="margin-bottom: 20px">
-   <a href="" class="btn">
-   <i class="icon-download"></i>
-   Download stable version
-   </a>
-   </p>
+    <div class="btn-group download-buttons-home">
+    <a class="btn zip">Download<br/><strong>ZIP File</strong></a>
+    <a class="btn tar">Download<br/><strong>Tar Ball</strong></a>
+    <a class="btn github">Fork On<br/><strong>GitHub</strong></a>
+    </div>
+    <br/>
 
 Development version
 ^^^^^^^^^^^^^^^^^^^
 
-Trunk source code is not always stable, please look at our current issues
+Development releases are not always stable. Please, look at our 
+`current issues <https://github.com/repejota/fhost/issues>`_
 for help and troubleshooting.
+
+Note that on this version we don't not offer support beyond the 
+process of developing new features. If you find a bug that blocks you 
+or your work, please use the stable version.
 
 .. raw:: html
 
-   <p style="margin-bottom: 20px">
-   <a href="" class="btn">
-   <i class="icon-download"></i>
-   Download trunk version
-   </a>
-   </p>
+    <div class="btn-group download-buttons-home">
+    <a href="https://github.com/repejota/fhost/zipball/master" class="btn zip">Download<br/><strong>ZIP File</strong></a>
+    <a href="https://github.com/repejota/fhost/tarball/master" class="btn tar">Download<br/><strong>Tar Ball</strong></a>
+    <a href="https://github.com/repejota/fhost/fork" class="btn github">Fork On<br/><strong>GitHub</strong></a>
+    </div>
+    <br/>
 
 
 Installing from sources involves the following steps:
@@ -59,7 +61,7 @@ Installing from sources involves the following steps:
     cd fhost
     python setup install
 
-To upgrade just download another version and proceed like a normal
+To upgrade or reinstall just download another version and proceed like a normal
 installation.
 
 For old versions and active development branches please, refer to the

@@ -30,9 +30,9 @@ This simple **fhost** usage session is enough to introduce you on this tool:
     fhost's epilog
 
 
-Listing available hosts.
+Listing available Hosts. ::
 
-::
+    $ fhost list
 
     Listing (4) host(s):
         127.0.0.1     -> localhost
@@ -40,9 +40,7 @@ Listing available hosts.
         192.168.56.101        -> fhost.org
         192.168.56.102        -> subcmd.org
 
-Adding a new host.
-
-::
+Adding a new Host. ::
 
     $ sudo fhost add 192.168.56.103 fake-host.com fake-host
 
@@ -55,9 +53,7 @@ Adding a new host.
         192.168.56.102        -> subcmd.org
         192.168.56.103        -> fake-host.com
 
-Remove a host.
-
-::
+Removing a Host. ::
 
     $ sudo fhost remove fake-host.com
 
