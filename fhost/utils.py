@@ -43,6 +43,8 @@ def isValidHostname(hostname):
 			print "Valid Hostname!"
 		else:
 			print "Invalid Hostname"
+
+	:Results: Boolean value that indicates if the hostname is valid.
 	"""
 	return re.match("^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$", hostname)
 
@@ -58,5 +60,7 @@ def isValidIP(ip):
 			print "Valid IP!"
 		else:
 			print "Invalid IP"
+
+	:Results: Boolean value that indicates if the IP address is valid.
 	"""
 	return re.match("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$", ip)

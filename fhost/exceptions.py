@@ -32,6 +32,9 @@
 class BaseException(Exception):
 	"""Base Exception
 
+	This is the base exception. All other exceptions from **fhost** module
+	inherits from this one.
+
 	Example:
 
 	::
@@ -46,6 +49,14 @@ class BaseException(Exception):
 class InvalidHostnameException(BaseException):
 	"""Invalid Hostname
 
+	This exception is raised when some part of **fhost** code validates a 
+	hostname format.
+
+	As /etc/hosts file is quite delicated beacuse it can affect the whole system,
+	**fhost** performs aggressive validations on all input and output data.
+
+	A common string message is shown to the user if this exeption raises.
+
 	Example:
 
 	::
@@ -59,6 +70,14 @@ class InvalidHostnameException(BaseException):
 
 class InvalidIPException(BaseException):
 	"""Invalid IP
+
+	This exception is raised when some part of **fhost** code validates an 
+	IP address format.
+
+	As /etc/hosts file is quite delicated beacuse it can affect the whole system,
+	**fhost** performs aggressive validations on all input and output data.
+
+	A common string message is shown to the user if this exeption raises.
 
 	Example:
 

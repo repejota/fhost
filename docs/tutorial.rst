@@ -28,3 +28,41 @@ This simple **fhost** usage session is enough to introduce you on this tool:
         list                List available hosts
 
     fhost's epilog
+
+
+Listing available hosts.
+
+::
+
+    Listing (4) host(s):
+        127.0.0.1     -> localhost
+        127.0.1.1     -> fhost.org
+        192.168.56.101        -> fhost.org
+        192.168.56.102        -> subcmd.org
+
+Adding a new host.
+
+::
+
+    $ sudo fhost add 192.168.56.103 fake-host.com fake-host
+
+    fhost list
+
+    Listing (5) host(s):
+        127.0.0.1     -> localhost
+        127.0.1.1     -> fhost.org
+        192.168.56.101        -> fhost.org
+        192.168.56.102        -> subcmd.org
+        192.168.56.103        -> fake-host.com
+
+Remove a host.
+
+::
+
+    $ sudo fhost remove fake-host.com
+
+    Listing (4) host(s):
+        127.0.0.1     -> localhost
+        127.0.1.1     -> fhost.org
+        192.168.56.101        -> fhost.org
+        192.168.56.102        -> subcmd.org

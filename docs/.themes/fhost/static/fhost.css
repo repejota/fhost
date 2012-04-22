@@ -49,18 +49,33 @@ pre {
     color: #aaa;
 }
 
+.section dl.class dd blockquote {
+    border-left: 0;
+}
+.section dl.function dt,
 .section dl.class dt,
-.section dl.function dt  {
+.section dl.exception dt {
     font-size: 1.3em;
     margin-bottom: 5px;
+    line-height: 1.5em;
+}
+.section dl.method ul.simple li {
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 .section dl.docutils dt {
     font-size: 1.3em;
-    margin-bottom: 5px;    
+    margin-bottom: 5px;
 }
 .section dl.docutils dd {
     font-size: 1.3em;
     margin-bottom: 10px;
+}
+.section dl.method table.docutils th,
+.section dl.method table.docutils td,
+.section dl.function table.docutils th,
+.section dl.function table.docutils td {
+    font-size: 1.2em;
 }
 
 [class^="icon-"], [class*=" icon-"] {
