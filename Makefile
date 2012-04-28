@@ -56,6 +56,9 @@ doc:
 	  @echo $(GREEN)"Building $(PROJECT_NAME) documentation..."$(NOTHING)
 	  @$(MAKE) -C docs html SPHINXOPTS=-Aonline=1
 
+upload_docs:
+	  @python setup.py upload_docs
+
 test:
 	  @echo $(GREEN)"Running $(PROJECT_NAME) tests..."$(NOTHING)
 	  @$(TEST) --quiet --with-coverage --cover-package=$(PROJECT_NAME)
