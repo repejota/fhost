@@ -71,7 +71,7 @@ setup(
     },
     platforms=['Any'],
     scripts=[],
-    provides=['cliff',],
+    provides=['fhost',],
     install_requires=['subcmd',],
     namespace_packages=[],
     zip_safe=False,

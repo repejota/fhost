@@ -56,7 +56,12 @@ doc:
 	  @echo $(GREEN)"Building $(PROJECT_NAME) documentation..."$(NOTHING)
 	  @$(MAKE) -C docs html SPHINXOPTS=-Aonline=1
 
+upload:
+	  @echo $(GREEN)"Upload $(PROJECT_NAME) packages..."$(NOTHING)
+	  @python setup.py sdist upload
+
 upload_docs:
+	  @echo $(GREEN)"Uploading $(PROJECT_NAME) docs..."$(NOTHING)
 	  @python setup.py upload_docs
 
 test:
