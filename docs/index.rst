@@ -18,9 +18,9 @@ license.
 .. raw:: html
 
     <div class="btn-group pull-right download-buttons-home">
-    <a class="btn zip">Download<br/><strong>ZIP File</strong></a>
-    <a class="btn tar">Download<br/><strong>Tar Ball</strong></a>
-    <a class="btn github">Fork On<br/><strong>GitHub</strong></a>
+    <a href="https://github.com/repejota/fhost/zipball/v0.2" class="btn zip">Download<br/><strong>ZIP File</strong></a>
+    <a href="https://github.com/repejota/fhost/tarball/v0.2" class="btn tar">Download<br/><strong>Tar Ball</strong></a>
+    <a href="https://github.com/repejota/fhost/" class="btn github">Fork On<br/><strong>GitHub</strong></a>
     <div class="current-version">Current version is <span class="version">v0.2</span></div>
     </div>
 
