@@ -1,6 +1,7 @@
 .coverage
 dist
 *egg*
+build/lib.linux-i686-2.7/
 
 fhost/*.*/*.pyc
 
