@@ -31,27 +31,28 @@
 
 from setuptools import setup, find_packages
 
+PROJECT = "fhost"
 
 with open('README.rst') as f:
-    readme = f.read()
+    README = f.read()
 
 with open('LICENSE') as f:
-    license = f.read()
+    LICENSE = f.read()
 
 with open('VERSION') as f:
-    version = f.read()
+    VERSION = f.read()
 
 setup(
-    name='fhost',
-    version='0.2',
+    name=PROJECT,
+    version=VERSION,
     description="""A Python module that allows you to create,
                    list, and modify local hosts file entries.""",
-    long_description=readme,
+    long_description=README,
     author='Raul Perez',
     author_email='repejota@gmail.com',
     url='http://repejota.github.com/fhost',
     download_url='http://repejota.github.com/fhost/install',
-    license=license,
+    license=LICENSE,
     packages=find_packages(exclude=('tests', 'docs')),
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -59,12 +60,19 @@ setup(
         'Intended Audience :: End Users/Desktop',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
-        'Operating System :: POSIX',
-        'Programming Language :: Python'
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
     ],
     entry_points={
         'console_scripts': [
             'fhost = fhost.cli:application.cmdline'
         ]
-    }
+    },
+    platforms=['Any'],
+    scripts=[],
+    provides=['cliff',],
+    install_requires=['subcmd',],
+    namespace_packages=[],
+    zip_safe=False,
 )

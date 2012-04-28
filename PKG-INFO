@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: fhost
+Version: 0.2
+Summary: A python module that allows you to create, list, and modify local hosts file entries.
+Home-page: http://repejota.github.com/fhost
+Author: Raul Perez
+Author-email: repejota@gmail.com
+License: BSD three-clause 
+Download-URL: http://repejota.github.com/fhost/
+Description: =====
+         fhost
+        ======
+        
+        fhost is a Python module that helps you to manage your /etc/hostnames easily.
+
+        Provides an API based on a CLI interface to add, remove and list maped local hostnames with IP’s that follows the standards of Hosts file.
+        
+        Documentation
+        =============
+        
+        Documentation for fhost is in http://repejota.github.com/fhost/
+        
+        To do
+        =====
+        
+Platform: Any    
+Development Status :: 4 - Beta'
+Environment :: Console'
+Intended Audience :: End Users/Desktop'
+Intended Audience :: Developers'
+Intended Audience :: System Administrators'
+Programming Language :: Python'
+Programming Language :: Python :: 2'
+Programming Language :: Python :: 2.7'
+Provides: fhost
