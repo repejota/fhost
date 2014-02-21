@@ -1,7 +1,7 @@
 #
 ## BEGIN LICENSE BLOCK
 #
-# Copyright (c) <2012>, Raul Perez <repejota@gmail.com>
+# Copyright (c) <2012-2014>, Raul Perez <repejota@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -71,8 +71,8 @@ setup(
     },
     platforms=['Any'],
     scripts=[],
-    provides=['fhost',],
-    install_requires=['subcmd',],
+    provides=['fhost'],
+    install_requires=['subcmd'],
     namespace_packages=[],
     zip_safe=False,
 )

@@ -1,7 +1,7 @@
 #
 ## BEGIN LICENSE BLOCK
 #
-# Copyright (c) <2012>, Raul Perez <repejota@gmail.com>
+# Copyright (c) <2012-2014>, Raul Perez <repejota@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,6 @@
 ## END LICENSE BLOCK
 #
 
-import sys
 import os
 
 from fhost import utils
@@ -91,10 +90,10 @@ class Hosts(object):
                     line_parts = line.split()
                     # Add item dict { ip_address, canonical_hostname, aliases }
                     self.__hosts.append({
-                                "ip_address": line_parts[:1][0],
-                                "canonical_hostname": line_parts[1:2][0],
-                                "aliases": line_parts[2:]}
-                    )
+                        "ip_address": line_parts[:1][0],
+                        "canonical_hostname": line_parts[1:2][0],
+                        "aliases": line_parts[2:]
+                    })
             # Close file
             f.close()
 
@@ -103,8 +102,8 @@ class Hosts(object):
 
         Saves this container ( one host per line ) to disk at specified path.
 
-        Also checks if path is available and throws an excpetion if its not
-        accedible.
+        Also checks if path is available and throws an exception if its not
+        accessible.
 
         :Results: None
         """
@@ -122,7 +121,7 @@ class Hosts(object):
         """Empty loaded hosts
 
         Erases all available hosts on this container and starts with
-        an enmpty one.
+        an empty one.
 
         :Results: None
         """
@@ -160,17 +159,16 @@ class Hosts(object):
 
         :Results: None
         """
-        if not utils.isValidIP(ip_address):
+        if not utils.is_valid_ip(ip_address):
             raise InvalidIPException("%s is not a valid IP address"
                                      % ip_address)
-            sys.exit(1)
-        if not utils.isValidHostname(canonical_hostname):
-            raise InvalidHostnameException("%s is not a valid hostname"
-                                            % canonical_hostname)
-            sys.exit(1)
-        self.__hosts.append({"ip_address": ip_address,
-                             "canonical_hostname": canonical_hostname,
-                             "aliases": args})
+        if not utils.is_valid_hostname(canonical_hostname):
+            raise InvalidHostnameException("%s is not a valid hostname" % canonical_hostname)
+        self.__hosts.append({
+            "ip_address": ip_address,
+            "canonical_hostname": canonical_hostname,
+            "aliases": args
+        })
         self.__save(self.hosts_file)
 
     def delete(self, canonical_hostname):
@@ -180,13 +178,14 @@ class Hosts(object):
 
         :Results: None
         """
-        if not utils.isValidHostname(canonical_hostname):
-            raise InvalidHostnameException("%s is not a valid hostname"
-                                            % canonical_hostname)
-            sys.exit(1)
-        self.__hosts = [{"ip_address": host["ip_address"],
-                         "canonical_hostname": host["canonical_hostname"],
-                         "aliases": host["aliases"]}
-                        for host in self.__hosts
-                        if host["canonical_hostname"] != canonical_hostname]
+        if not utils.is_valid_hostname(canonical_hostname):
+            raise InvalidHostnameException("%s is not a valid hostname" % canonical_hostname)
+        self.__hosts = [
+            {
+                "ip_address": host["ip_address"],
+                "canonical_hostname": host["canonical_hostname"],
+                "aliases": host["aliases"]
+            }
+            for host in self.__hosts if host["canonical_hostname"] != canonical_hostname
+        ]
         self.__save(self.hosts_file)

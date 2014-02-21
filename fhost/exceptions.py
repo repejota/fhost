@@ -1,7 +1,7 @@
 #
 ## BEGIN LICENSE BLOCK
 #
-# Copyright (c) <2012>, Raul Perez <repejota@gmail.com>
+# Copyright (c) <2012-2014>, Raul Perez <repejota@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -30,7 +30,7 @@
 #
 
 
-class BaseException(Exception):
+class BaseExceptionError(Exception):
     """Base Exception
 
     This is the base exception. All other exceptions from **fhost** module
@@ -48,7 +48,7 @@ class BaseException(Exception):
     """
 
 
-class InvalidHostnameException(BaseException):
+class InvalidHostnameException(BaseExceptionError):
     """Invalid Hostname
 
     This exception is raised when some part of **fhost** code validates a
@@ -72,7 +72,7 @@ class InvalidHostnameException(BaseException):
     """
 
 
-class InvalidIPException(BaseException):
+class InvalidIPException(BaseExceptionError):
     """Invalid IP
 
     This exception is raised when some part of **fhost** code validates an

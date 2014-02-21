@@ -1,7 +1,7 @@
 #
 ## BEGIN LICENSE BLOCK
 #
-# Copyright (c) <2012>, Raul Perez <repejota@gmail.com>
+# Copyright (c) <2012-2014>, Raul Perez <repejota@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -72,18 +72,19 @@ class Application(App):
 
     version = "0.2"
 
-    def do_list(self, options):
-        """List available hosts command.
+    @staticmethod
+    def do_list(options):
+        """
+        List available hosts command.
 
         No argument is required for this too.
 
         :Results: list - A list of triplets ( ip, host, alias) hostnames.
         """
         hosts = Hosts()
-        print "Listing (%s) host(s):" % len(hosts)
+        print("Listing (%s) host(s):" % len(hosts))
         for host in hosts:
-            print "  %s\t-> %s" % (host["ip_address"],
-                                   host["canonical_hostname"])
+            print("  %s\t-> %s" % (host["ip_address"], host["canonical_hostname"]))
 
     @arg('alias', help='Valid hostname as alias')
     @arg('hostname', help='Valid hostname')
@@ -106,9 +107,7 @@ class Application(App):
             hosts.add(options.ip, options.hostname, options.alias)
         except IOError as e:
             if e.errno == 13:
-                print "You don't have permissions to write '%s'. %s" % (
-                        hosts.hosts_file,
-                        "Did you forgot 'sudo'?")
+                print("You don't have permissions to write '%s'. %s" % (hosts.hosts_file, "Did you forgot 'sudo'?"))
             else:
                 raise IOError
             exit(1)
@@ -126,11 +125,10 @@ class Application(App):
             hosts.delete(options.hostname)
         except IOError as e:
             if e.errno == 13:
-                print "You don't have permissions to write '%s'. %s" % (
-                        hosts.hosts_file,
-                        "Did you forgot 'sudo'?")
+                print("You don't have permissions to write '%s'. %s" % (hosts.hosts_file, "Did you forgot 'sudo'?"))
             else:
                 raise IOError
             exit(1)
+
 
 application = Application()

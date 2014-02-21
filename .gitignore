@@ -2,6 +2,7 @@
 dist
 *egg*
 build/lib.linux-i686-2.7/
+build/lib.linux-x86_64-2.7/
 build/coverage
 
 fhost/*.*/*.pyc
@@ -10,3 +11,5 @@ docs/_build
 
 .hg
 .hgignore
+
+.idea

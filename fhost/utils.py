@@ -1,7 +1,7 @@
 #
 ## BEGIN LICENSE BLOCK
 #
-# Copyright (c) <2012>, Raul Perez <repejota@gmail.com>
+# Copyright (c) <2012-2014>, Raul Perez <repejota@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -32,9 +32,11 @@
 import re
 
 
-def isValidHostname(hostname):
+def is_valid_hostname(hostname):
     """Check if this is a valid hostname
 
+    :rtype : object
+    :param hostname: 
     Example:
 
     ::
@@ -47,13 +49,13 @@ def isValidHostname(hostname):
 
     :Results: Boolean value that indicates if the hostname is valid.
     """
-    regepx = """^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)
+    rgx = """^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)
                  *
                  ([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$"""
-    return re.match(regexp, hostname)
+    return re.match(rgx, hostname)
 
 
-def isValidIP(ip):
+def is_valid_ip(ip):
     """Check if this is a valid IP
 
     Example:
