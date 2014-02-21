@@ -93,5 +93,6 @@ prune: clean distclean
 	  @echo $(GREEN)"Prune $(PROJECT_NAME) packages..."$(NOTHING)
 	  @$(RM) -rf build
 	  @$(RM) -rf docs/_build
+	  @$(RM) -rf fhost.egg-info
 
 .PHONY: clean distclean build doc test dist install
