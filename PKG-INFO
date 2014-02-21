@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: fhost
-Version: 0.2
+Version: 0.3
 Summary: A python module that allows you to create, list, and modify local hosts file entries.
 Home-page: http://repejota.github.com/fhost
 Author: Raul Perez

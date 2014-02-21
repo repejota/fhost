@@ -33,7 +33,7 @@ from setuptools import setup, find_packages
 
 PROJECT = "fhost"
 
-with open('README.rst') as f:
+with open('README.md') as f:
     README = f.read()
 
 with open('LICENSE') as f:

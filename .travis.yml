@@ -28,3 +28,13 @@
 #
 ## END LICENSE BLOCK
 #
+
+language: python
+python:
+  - 2.7
+  - 3.3
+  - pypy
+install:
+  - pip uninstall -y nose
+  - pip install -r requirements.txt
+script: nosetests
