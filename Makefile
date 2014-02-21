@@ -89,4 +89,9 @@ distclean: clean
 	  @echo $(GREEN)"Cleaning $(PROJECT_NAME) packages..."$(NOTHING)
 	  @$(RM) -rf dist
 
+prune: clean distclean
+	  @echo $(GREEN)"Prune $(PROJECT_NAME) packages..."$(NOTHING)
+	  @$(RM) -rf build
+	  @$(RM) -rf docs/_build
+
 .PHONY: clean distclean build doc test dist install
